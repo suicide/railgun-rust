@@ -379,6 +379,33 @@ impl ChainConfigDefaults {
                 anchor_interval: 1000,
                 anchor_retention: 5,
             }),
+            11155111 => Some(Self {
+                chain_id,
+                contract: address!("0xeCFCf3b4eC647c4Ca6D49108b311b7a7C9543fea"),
+                relay_adapt_contract: address!("0x7e3d929EbD5bDC84d02Bd3205c777578f33A214D"),
+                relay_adapt_7702_contract: address!("0x6fa84bc1587cc90978dc9535d4d38dc74fa4b522"),
+                multicall_contract: address!("0xcA11bde05977b3631167028862bE2a173976CA11"),
+                rpc_urls: default_rpc_urls(&[
+                    "https://ethereum-sepolia-rpc.publicnode.com",
+                    "https://ethereum-sepolia-public.nodies.app",
+                    "https://sepolia.drpc.org",
+                    "https://eth-sepolia-testnet.api.pocket.network",
+                ]),
+                quick_sync_endpoint: Some(
+                    Url::parse(
+                        "https://rail-squid.squids.live/squid-railgun-eth-sepolia-v2/graphql",
+                    )
+                    .expect("valid sepolia quick sync endpoint"),
+                ),
+                indexed_wallet_block_range: 300_000,
+                deployment_block: 5_784_774,
+                v2_start_block: 0,
+                legacy_shield_block: 0,
+                archive_until_block: 0,
+                finality_depth: 12,
+                anchor_interval: 1000,
+                anchor_retention: 5,
+            }),
             _ => None,
         }
     }
